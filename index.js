@@ -1,5 +1,6 @@
 const express = require("express");
 const axios = require("axios");
+const cron = require("node-cron");
 const app = express();
 const port = 3003 || process.env.PORT;
 
@@ -20,8 +21,9 @@ const pingServers = async () => {
   }
 };
 
-// Ping servers every 10 minutes
-setInterval(pingServers, 10 * 60 * 1000);
+cron.schedule("*/10 * * * *", () => {
+  pingServers();
+});
 
 app.get("/", (req, res) => {
   res.send("Keep-Alive Server is running");
