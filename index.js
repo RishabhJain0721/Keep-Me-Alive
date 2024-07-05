@@ -5,8 +5,8 @@ const app = express();
 const port = 3003 || process.env.PORT;
 
 const servers = [
+  "https://keep-me-alive.onrender.com", //Self reviving :)
   "https://opinod.onrender.com/api/news/",
-  //   "http://your-server-2-url.com",
   // Add more server URLs as needed
 ];
 
